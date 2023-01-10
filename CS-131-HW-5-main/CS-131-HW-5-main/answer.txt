@@ -1,0 +1,7 @@
+Question: Hashtags that are special to the clusters that occur in a particular cluster of tweets, but often in the tweets overall?2>Which hashtags and for which clusters (ID'ed by their leaders)? 
+
+"StandWithUkraine" for replies_hashtag_freqs.tsv
+"Ukriane" for retweets_hashtag_freqs.tsv
+
+Not too many hashtags were used in either replies/retweets hashtag cluster more than the entire data set.
+

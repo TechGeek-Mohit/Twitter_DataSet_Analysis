@@ -1,0 +1,215 @@
+Script started on 2022-10-01 02:42:20-04:00
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ nano a2.txt
+^[[?1049h^[[22;0;0t^[[1;37r^[(B^[[m^[[4l^[[?7h^[[39;49m^[[?1h^[=^[[?1h^[=^[[?1h^[$a2.txt  downloaded_tweets_extend_nolf2_NOBOT.tsv  downloaded_tweets_extend_origin$^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ echo a^H^[[K""^HQ"^H1"^H^[[C
+
+#########################################################################################
+Q0
+The MS-excel in designed in such a way when it reads the .csv file whenever it see's a ","
+it adds the field after comma to a seperate column in the excel, due to which data becomes
+organized in a proper manner in a row. Thus, now all the new lines have been removed, and 
+we can now use the updated version of the files for the assignment. Also, professor used
+awk command to remove bot reviews in the files by comparing field $2 and $6, that reduced the 
+number of empty fields.
+#########################################################################################
+
+Q1>  Find the top 10 users who replied the most to other users
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ cut -f 2 downloaded_tweets_extend_original$ 
+
+Command used :  cut -f 2 downloaded_tweets_extend_original_nolf2_NOBOT.tsv | uniq -c | sort -n | tail -n 10
+      
+      3 713761799103971331
+      3 79402753
+      3 813314931147816960
+      3 940778288871542786
+      3 993492864066768899
+      4 1290232189615894531
+      4 1290232189615894531
+      4 1471037967926018051
+      4 612473
+      6 16378486
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ cut -f 2 downloaded_tweets_extend_original$Q2
+########################################################################################
+Q2> Find the top 10 users who got the most replies from other users 
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ cut -f 6 downloaded_tweets_extend_original$^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ cut -f 6 downloaded_tweets_extend_original$ 
+
+command used : cut -f 6 downloaded_tweets_extend_original_nolf2_NOBOT.tsv| grep b[0-9] | uniq -c | sort -n | tail -n 10
+
+      3 178580925
+      3 3303457302
+      3 3453306553
+      3 48624704
+      3 48624704
+      3 605153786
+      3 92932981
+      3 950563187296030721
+      4 2885493519
+      4 3453306553
+
+########################################################################################
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ echo ""^HQ"^H3"^H^[[C
+Q3> Find the top 10 users who retweeted the most other tweets
+
+command used: cut -f 5 downloaded_tweets_extend_nolf2_NOBOT.tsv |grep retweeted | uniq -c | sort -n -k | tail -n 10
+
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$  
+      1 [<ReferencedTweet id=744529152729022465 type=retweeted]
+      1 [<ReferencedTweet id=840914187467542530 type=retweeted]
+      1 [<ReferencedTweet id=897825230923718656 type=retweeted]
+      1 [<ReferencedTweet id=935144714931650560 type=retweeted]
+      1 [<ReferencedTweet id=942883641964859392 type=retweeted]
+      1 [<ReferencedTweet id=957867509335470080 type=retweeted]
+      1 [<ReferencedTweet id=967452327476191232 type=retweeted]
+      1 [<ReferencedTweet id=971337173646626817 type=retweeted]
+      1 [<ReferencedTweet id=973206004010713089 type=retweeted]
+      1 [<ReferencedTweet id=977887540119265283 type=retweeted]
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ echo ""^HQ"^H5"^H^[[C
+
+###################################################################################################
+Q5>Find the 30 hashtags used most frequently overall for anything
+^[]0mohit@sjsu:~/A2^G[mohit@sjsu A2]$cut -f 4 downloaded_tweets_extend_nolf2_NOBOT.tsv 
+| uniq -u | tail -n 30     
+
+command used : cut -f 4 downloaded_tweets_extend_nolf2_NOBOT.tsv | uniq -c | sort -n | uniq -u | tail -n 30
+
+     11 ToyFair2022
+     12 22ValentineOhmFluke
+     12 LoveAfterLockup
+     12 My600lbLife
+     12 PMQs
+     13 CrazyTown
+     13 OhmFluke3rdFallingForYou
+     13 RepublicanTTTTTTPredators
+     13 TikTok
+     14 "FBPE,FBPPR,FollowBackFriday"
+     14 "FBPE,FollowBackFriday"
+     14 PMQs
+     15 "FBPE,FollowBackFriday,TakeBackDemocracy"
+     15 PMQs
+     16 1M700KLoveUป๋าฟลุ้ค
+     17 "FBPE,FollowBackFriday"
+     17 PMQs
+     18 MLKDay
+     19 IStandWithUkriane
+     23 "FBPE,FollowBackFriday"
+     26 "FBPE,FollowBackFriday"
+     28 "FBPE,FollowBackFriday"
+     29 "FBPE,FollowBackFriday"
+     30 "FBPE,FollowBackFriday"
+     39 "FBPE,FollowBackFriday"
+     40 "J6T,J6TraitorSaysWhat"
+     45 RepublicanTTTTTTPredators
+     77 "FBPE,FollowBackFriday"
+     97 BoycottATP
+    121 "FBPE,FollowBackFriday"
+
+########################################################################################################
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ echo ""^HQ"^H6"^H^[[C
+Q6>  Find the 30 hashtags that got retweeted the most
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ ^M^[[K[mohit@sjsu A2]$ ^M^[[K[mohit@sjsu A$      
+
+command used : grep retweeted downloaded_tweets_extend_nolf2_NOBOT.tsv |cut -f 4 downloaded_tweets_extend_nolf2_NOBOT.tsv | uniq -c | sort -n | uniq -u | tail -n 30
+     4 บวงสรวงclosefriend2
+     4 ออกกองCloseFriend2D2
+      5 22ValentineOhmFluke
+      5 BREAKING
+      5 insiders
+      5 LARvsTB
+      5 OhmFluke3rdFallingForYou
+      5 OtD
+      5 SeeYouCloseFriend2
+      5 TeaserCloseFriend2
+      5 Ukraine
+      5 WorstPresidentEver
+      5 เปิดกล้องCloseFriendSS2
+      5 เปิดห้อง609Q1
+      5 ห้อง609Q2
+      6 Crufts
+      6 DoWeHaveAProblem
+      6 LongCovid
+      6 Omicron
+      6 อยากดูCloseFriendในโรง
+      7 1M700KLoveUป๋าฟลุ้ค
+      7 BREAKING
+      7 MuellerReport
+      7 SosatxLoveAt9
+      7 Ukraine
+      8 antisemitism
+      8 OhmFluke3rdFallingForYou
+      8 Palestinian
+     13 RepublicanTTTTTTPredators
+     45 RepublicanTTTTTTPredators
+     
+     #############################################################################################################################
+     
+Q7>Find the 30 hashtags that got replied the most
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ awk -F"\t" '{print $4,$6}' downloade$    
+
+command used : "awk -F"\t" '{print $4,$6}' downloaded_tweets_extend_nolf2_NOBOT.tsv | grep [1-9]| uniq -c| sort -n  |tail -n 30
+
+      5 SeeYouCloseFriend2
+      5 TeaserCloseFriend2
+      5 เปิดกล้องCloseFriendSS2
+      5 เปิดห้อง609Q1
+      5 ห้อง609Q11
+      6 2ndOHMyLOVE
+      6 609WorkshopDay1
+      6 COVID19
+      6 HandsOffHitler 1046608631968538624
+      6 J6
+      7 COVID19
+      7 COVID19
+      7 My600lbLife
+      7 SeeYouCloseFriend2
+      7 ห้อง609Q2
+      8 Happy420
+      8 SosatxLoveAt9
+      9 Bales2022FilmChallenge
+      9 TheFirst48
+      9 ทำบุญขึ้นห้อง609
+     10 COVID19
+     10 IntroductionLoveAt9
+     11 1M700KLoveUป๋าฟลุ้ค
+     13 My600lbLife
+     16 22ValentineOhmFluke
+     16 Bales2022FilmChallenge
+     18 Bales2022FilmChallenge
+     18 OhmFluke3rdFallingForYou
+     30 โอห์มฟลุ้คฟีเวอร์2021
+     41 Bales2022FilmChallenge
+     
+###########################################################################################################
+
+Q8> Find the 30 hashtags that got quoted the most
+^[]0;mohit@sjsu:~/A2^G[mohit@sjsu A2]$ awk -F"\t" '{print $4,$6}' downloaded_twee$
+
+Command used :  awk -F"\t" '{print $4}'  downloaded_tweets_extend_nolf2_NOBOT.tsv | grep " |uniq -u |uniq -c |sort -n |tail -n 30
+
+      1 "โอห์มไง,OhmThitiwat"
+      1 "โอห์มไง,OhmThitiwat,OhmFluke"
+      1 "โอห์มไง,OhmThitiwat,เจ้าแก้มก้อน,fluke_natouch"
+      1 "โอห์มไง,OhmThitiwat,เจ้าแก้มก้อน,fluke_natouch"
+      1 "โอห์มฟลุ้ค,ManGuxOhmFluke"
+      1 "โอห์มฟลุ้ค,OhmFluke"
+      1 "โอห์มฟลุ้ค,OhmFluke"
+      1 "โอห์มฟลุ้ค,OhmFluke"
+      1 "โอห์มฟลุ้ค,OhmFluke,ViuOriginalLineUp2022,ViuTheDifference"
+      1 "โอห์มฟลุ้ค,ohmthitiwat,fluke_natouch"
+      1 "โอห์มฟลุ้ค,เจ้าแก้มก้อน,โอห์มไง,fluke_natouch,OhmThitiwat"
+      1 "โอห์มฟลุ้คฟีเวอร์2021,เจ้าแก้มก้อน,โอห์มไง,fluke_natouch"
+      1 "โอห์มฟลุ้ค,อีกนานมั้ยCloseFriend2"
+      1 "เเตงโม,ค้ามนุษย์"
+      1 "ウクライナに平和を,NOWAR,戦争反対,нетвойне,Противійни"
+      1 "ウクライナに平和を,NOWAR,戦争反対,нетвойне,Противійни,niewiederkrieg,SpeakOutAgainstWW3,internationalism"
+      1 "ウクライナに平和を,NOWAR,戦争反対,нетвойне,Противійни,SAVASAHAYIR,noguerra,όχιπόλεμος,нетвойне,НетвойневУкраине"
+      1 "ウクライナに平和を,NOWAR,戦争反対,нетвойне,Противійни,SpeakOutAgainstWW3,Iraq,Afghanstan,Russia,Ukraine"
+      1 "李永钦了不起舞社,TENxGreatDanceCrew,เตนล์,TEN,TENLEE,李永钦,텐,テン"
+      2 "Apartheid,StandWithUkraine"
+      2 "CobbCounty,MariettaGA"
+      2 "FBPE,FBPPR,FollowBackFriday"
+      2 "GreatDanceCrew,TEN,TENLEE"
+      2 "hnt,btc,eth,helium"
+      2 "KATG,OldLadyGang,KandiAndTheGang"
+      2 "PartyGate,COVID19"
+      2 "PutinHitler,StandWithUkraine,PutinHitler,PutinWarCriminal,StopPutinNOW,RussiaSanctions,BoycottRussia"
+      2 "TheBachelorABC,TheBachelor"
+      2 "Ukraine,Kharkiv"

@@ -1,0 +1,240 @@
+############################################################################################################################################
+Q1> Represent influence between users as a directional graph of users, save as a list of lines
+
+^[]0;mohit@sjsu:~/A3/A2^G[mohit@sjsu A2]$ ^M^[[K[mohit@sjsu A2]$ awk -F"\t" '($2 != $6) {print $6, $2}' 
+downloade^Med_tweets_extend_$^[]0;mohit@sjsu:~/A3/A2^G[mohit@sjsu A2]$ awk '{print $1,$2}' tmp2.txt | uniq -D | 
+uniq -c^Mc | awk '($1 > 3)' | sort -n >> A^H^[[Ka$^[]0;mohit@sjsu:~/A3/A2^G[mohit@sjsu A2]$ vi res.txt
+
+Output : check on a3Q1.txt // The output was very large, so I decided to put it in a file to make this file easier to read.
+
+###########################################################################################################################################
+Q2>Produce clusters (groups of influence) by ranking the users who got replies by their number of replies. Keep only the largest clusters by
+"cutting" at a threshold of 3; in order words, keep just the graph for users who got 3 or more replies
+
+^[[?2004h^[[?1049h^[[22;0;0t^[[?1h^[=^[[?2004h^[[1;34r^[[?12h^[[?12l^[[27m^[[23m^[[29m^[[m^[[H^[[2J^[[?25l^[[34;1H"res.txt" 8L, 852C
+$cut -f 2 downloaded_tweets_extend_original_nolf2_NOBOT.tsv | unii^[[4;1Hq -c | sort -n
+
+Output :
+      4 1003107003693137921 1921951394
+      4 1005846500583321601 1308267623327518725
+      4 1060751816 302984766
+      4 1080844782 1921951394
+      4 1104524508709441536 1387010761994682371
+      4 11134252 1308267623327518725
+      4 1136667717317091328 29447428
+      4 1241938664 804582780298412032
+      4 1252988129708929024 302984766
+      4 1278236816936710144 29447428
+      4 1344356576786866176 41186732
+      4 1375592430624518156 578601744
+      4 1393936924830732288 804582780298412032
+      4 14344823 1308267623327518725
+      4 14362766 302984766
+      4 15207668 41186732
+      4 16106584 1387010761994682371
+      4 178711456 614600545
+      4 18166778 41186732
+      4 1917731 1417952253449842692
+      4 19678937 302984766
+      4 20751145 804582780298412032
+      4 239103376 614600545
+      4 269794637 578601744
+      4 27493883 1060440219097423872
+      4 2975091705 41186732
+      4 381685461 302984766
+      4 43277776 614600545
+      4 435331179 1308267623327518725
+      4 48325671 1263391922657337345
+      4 486834536 1921951394
+      4 52585436 302984766
+      4 54391597 804582780298412032
+      4 58974496 3453306553
+      4 603724114 302984766
+      4 67805368 302984766
+      4 746652122 578601744
+      4 775611351792222208 199452338
+      4 799911790398373888 2574271742
+      4 885891622919184384 302984766
+      4 90679076 348764745
+      4 945762498883588097 578601744
+      4 954005058793832448 1263391922657337345
+      4 96152544 302984766
+      4 977204844 804582780298412032
+      5 105433445 302984766
+      5 1074480192 41186732
+      5 1113747629282930688 578601744
+      5 1177718582 302984766
+      5 142332083 1308267623327518725
+      5 1488966025257312262 1387010761994682371
+      5 151606599 302984766
+      5 1652541 1417952253449842692
+      5 17477864 981436419087523840
+      5 179313631 938494109844729856
+      5 2245797112 302984766
+      5 2904241896 578601744
+      5 2987245137 1387010761994682371
+      5 306832085 578601744
+      5 31194003 1492690652529889282
+      5 355422278 578601744
+      5 39002335 804582780298412032
+      5 467726691 1060440219097423872
+      5 47094621 1387010761994682371
+      5 471426839 804582780298412032
+      5 499154896 41186732
+      5 519897737 41186732
+      5 523411543 302984766
+      5 558818756 1263391922657337345
+      5 793520017 1387010761994682371
+      5 816652616625168388 41186732
+      5 889054752230735872 199452338
+      5 898565402346827779 1308267623327518725
+      5 978758798176382977 302984766
+      6 1260792878420291584 804582780298412032
+      6 1391884924173627395 1263391922657337345
+      6 153517357 578601744
+      6 16799453 578601744
+      6 2153626892 1263391922657337345
+      6 2352629311 41186732
+      6 2598999181 1263391922657337345
+      6 343713611 1263391922657337345
+      6 36134224 614600545
+      6 409657315 302984766
+      6 58487473 1387010761994682371
+      6 799717156589965312 804582780298412032
+      7 1137827292 29447428
+      7 21525682 832019161454817280
+      7 225779417 3453306553
+      7 2264401871 938494109844729856
+      7 24931027 1308267623327518725
+      7 255812611 1060440219097423872
+      7 29459695 199452338
+      7 324703658 838381908656603144
+      7 3300678755 578601744
+      7 3832 804582780298412032
+      7 983813914596118529 578601744
+      9 113165445 804582780298412032
+      9 1275209472 302984766
+      9 19739126 41186732
+      9 237176284 804582780298412032
+      9 26562883 614600545
+      9 2800843867 302984766
+      9 2809959174 302984766
+     10 2962813893 41186732
+     10 64698201 614600545
+     10 90651198 41186732
+     11 1046608631968538624 578601744
+     11 1236816024281976833 302984766
+     11 1573800344 3453306553
+     11 420617857 614600545
+     11 728273994 29447428
+     11 94350709 29447428
+     12 879713479254528005 302984766
+     14 1384053916690571264 199452338
+     14 756584190112591872 302984766
+     14 877968869138329601 1309237180418666499
+     17 19604599 804582780298412032
+     17 2245822809 302984766
+     17 351120282 1387010761994682371
+     17 90732175 302984766
+     18 26347394 302984766
+     21 1236324668640047105 302984766
+     26 19739126 1921951394
+     28 492736486 302984766
+     28 956266072440635392 1492690652529889282
+     
+     ############################################################################################################################################################
+   
+   Q3> Plot the sizes of clusters as a histogram to show how many clusters of each size resulted.
+   
+   The data.txt file was created from the data obtained in the Q2
+    (25 sloc)  124 Bytes
+
+      4 45
+      5 29
+      6 12
+      7 11
+      8 0
+      9 7
+      10 3
+      11 6
+      12 1
+      13 0
+      14 3
+      15 0
+      16 0
+      17 4
+      18 1
+      19 0
+      20 0
+      21 1
+      22 0
+      23 0
+      24 0
+      25 0
+      26 1
+      27 0
+      28 2
+      
+      Then using gunplot the graph was plotted. The gunplot commands were not stored in history of the file.
+      Check the graph.svg file to see the output
+      
+      ##########################################################################################################################################################
+      
+      Q4> Find the 30 most frequent hashtags in these largest clusters of replies you kept (for the users/tweets that 
+      got replied to, not the users/tweets doing the replies). Compare to the 30 most frequent hashtags you found in assignment 
+      #2 (overall, question 5). Which hashtags appear in these clusters that did not appear in the frequent hashtags from assignment 
+      #2 (you can use sort and diff for this)?
+      
+      Getting overall hashtags as mentioned in Assignment 2
+cut -f 5 downloaded_tweets_extend_nolf2_NOBOT.tsv |grep retweetee^[[6;1Hd | uniq -c | sort -n -k
+
+      Getting hashtags of clustered data of "user replied to" as mentioned in Assignment 3
+cut -f 4 downloaded_tweets_extend_nolf2_NOBOT.tsv | uniq -c | soo^[[8;1Hrt -n | uniq -u | tail -n 30
+grep retweeted downloaded_tweets_extend_nolf2_NOBOT.tsv |cut -f  ^[[10;1H4 downloaded_tweets_extend_nolf2_NOBOT.tsv | uniq -c | sort$grep retweeted downloaded_tweets_extend_nolf2_NOBOT.tsv |cut -f  ^[[13;1H4 | uniq -c | sort -n | uniq -u |grep [A-Za-z] |  tail -n 30 awk -F"\t" '{print ,}' downloaded_tweets_extend_nolf2_NOBOT.tsvv^[[15;1H | grep [1-9]| uniq -c| sort -n  |tail -n 30
+ awk -F"\t" '{print }' downloaded_tweets_extend_nolf2_NOBOT.tsv  ^[[17;1H| grep " |uniq -u |uniq -c |sort -n |tail -n 30
+^[[94m~                                                               ^[[19;1H~           
+$^[]0;mohit@sjsu:~/A3/A2^G[mohit@sjsu A2]$ cut -f 4 downloaded_tweets_extend_nolf2_NOBOT.ts^Msv | uniq -c | sort -n | uniq -u | tail $^M^[[K^[[A^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[$^[]0;mohit@sjsu:~/A3/A2^G[mohit@sjsu A2]$ awk -F "t" '{print $2}' resk.txt  | uniq -c |gre^Mep "\s[A-Za-z]" | sort^H^H^H^H^H^H^H^H^H$^M^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^[[C^G >> oy^H^[[Kutput2.t$awk: fatal: cannot open file `temporary.txt' for reading (No such file or directory)
+
+Comparing both the hashtag files in A2 and A3
+^[]0;mohit@sjsu:~/A3/A2^G[mohit@sjsu A2]$ diff o^Gutput1.txt out^Gput2.txt
+1,30d0
+
+1,30c1,12
+<      12
+<      12 LoveAfterLockup
+<      12 My600lbLife
+<      13 CrazyTown
+<      13 RepublicanTTTTTTPredators
+<      13 TikTok
+<      13 ทำบุญขึ้นห้อง609
+<      13 โอห์มฟลุ้คฟีเวอร์2021
+<      14 BoycottATP
+<      14 "FBPE,FBPPR,FollowBackFriday"
+<      14 "FBPE,FollowBackFriday"
+<      14 PMQs
+<      15 "FBPE,FollowBackFriday,TakeBackDemocracy"
+<      17 "FBPE,FollowBackFriday"
+<      17 PMQs
+<      18 MLKDay
+<      19 IStandWithUkriane
+<      23 "FBPE,FollowBackFriday"
+<      24 "FBPE,FollowBackFriday"
+<      26 "FBPE,FollowBackFriday"
+<      29 "FBPE,FollowBackFriday"
+<      40 "J6T,J6TraitorSaysWhat"
+<      45 RepublicanTTTTTTPredators
+<      77 "FBPE,FollowBackFriday"
+<      83 BoycottATP
+<     121 "FBPE,FollowBackFriday"
+---
+>       1 AMons
+>       1 andWi
+>       1 ApersonlFailure
+>       1 con
+>       1 erbachBleib
+>       1 hornInLingerie
+>       1 in
+>       1 inHi
+>       1 inWarCriminal
+>       1 OrCaske
+>       1 ri

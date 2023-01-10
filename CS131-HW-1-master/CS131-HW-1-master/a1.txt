@@ -1,0 +1,87 @@
+1>
+mkdir A2
+
+2>
+pwd A1
+/home/mohit
+[This command help us to know more about pwd]
+pwd man
+
+3>
+[UID stands for User Identification Number]
+uid=1030(mohit) gid=1030(mohit) groups=1030(mohit)
+[The group it belongs to]
+1030
+[I found detials about it using man id commond]
+
+4>
+[created temp directory]
+temp
+[Removed executale permission]
+[The file still has permission for read write commands]
+chmod -x temp
+[I was not able to get into temp directory]
+cd temp
+[Yes, I was able to ls temp]
+ls temp
+[Yes, ls -l worked]
+ls -l temp
+total 0
+[Yes, I was able to create new file]
+touch newfile.txt temp
+
+5>
+cd temp2
+cd temp3
+[I was able to copy temp2 to temp3]
+cp temp2 temp3
+[I was able to move temp2 to temp3, and temp2 was no more in home directory after moving]
+mv temp2 temp3
+
+6>
+[the meminfo directory under  proc directory contains information on memory]
+[the cpuinfo under proc directory contains information about cpu]
+/proc/cpuinfo
+
+7>
+cat /proc/meminfo | head -1
+[Total memory of the IBM Redhat CPU]
+MemTotal:       73080640 kB = 73.08 GB
+
+8>
+/proc/cpuinfo | tail -1 | head -1 
+processor	: 255
+[processor architecture name]
+cpu		: POWER8 (architected), altivec supported
+[Processor speed]
+clock		: 3525.000000MHz = 3.52 GHz
+
+9>
+cp downloaded_hashtags_extend.csv A1
+[Size of the file = 7.8 GB]
+-rw-r--r-- 1 mohit mohit 7822180 Sep 15 00:49 downloaded_hashtags_extend.csv
+
+10>
+grep great downloaded_hashtags_extend.csv | sort | wc -l
+[Hashtags with great]
+57
+
+11>
+file downloaded_hashtags_extend.csv
+UTF-8 Unicode text
+
+12>
+man iconv
+iconv -f UTF-8 -t ASCII//TRANS downloaded_hashtags_extend.csv
+
+
+13>
+[unique users]
+sort downloaded_hashtags_extend.csv | uniq | wc -l
+107656
+[unique tweets]
+grep ,d downloaded_hashtags_extend.csv | uniq | wc -l
+3244
+[unique hashtags]
+grep d, downloaded_hashtags_extend.csv | uniq | wc -l
+6380

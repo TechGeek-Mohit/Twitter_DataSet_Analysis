@@ -1,0 +1,63 @@
+ 1011  pwd
+ 1012  cp downloaded_tweets_extend_nolf2.tsv /mnt/scratch/mohit/Assignment-6/CS-131-HW-6
+ 1013  cp downloaded_tweets_extend_original_nolf2.tsv /mnt/scratch/mohit/Assignment-6/CS-131-HW-6
+ 1014  cd ..
+ 1015  ls
+ 1016  cd ..
+ 1017  ls
+ 1018  cd Assignment-6
+ 1019  ls
+ 1020  cd CS-131-HW-6/
+ 1021  ls
+ 1022  echo "Remove Bot's From the File"
+ 1023  grep replied_to downloaded_tweets_extend_nolf2.tsv | awk -F'\t' '($2 != $6)' > replied_To_User_NoBots.txt
+ 1024  grep replied_to downloaded_tweets_extend_original_nolf2.tsv | awk -F'\t' '($2 != $6)' > replied_To_User_Original_NoBots.txt
+ 1025  ls
+ 1026  echo "Getting column 6, and putting it in seperate file called influential user"
+ 1027  cat replied_To_User_Original_NoBots.txt
+ 1028  clear
+ 1029  cat replied_To_User_Original_NoBots.txt | cut -f6 | sort | uniq -c| sort -nr -k1 >> influential_Users.txt
+ 1030  vi influential_Users.txt
+ 1031  sort influential_Users.txt | uniq -c| sort -n | head -n 20
+ 1032  wc influential_Users.txt
+ 1033  wc -l influential_Users.txt
+ 1034  sort influential_Users.txt | uniq -c| sort -n | tail -n 10
+ 1035  sort influential_Users.txt | sort -n | tail -n 10
+ 1036  :wq
+ 1037  history >> cmds.log
+ 1038  vi cmds.log
+ 1039  ls
+ 1040  rm influential_Users.txt
+ 1041  rm cmds.log
+ 1042  ls
+ 1043  rm replied_To_User_NoBots.txt
+ 1044  rm replied_To_User_Original_NoBots.txt
+ 1045  ls
+ 1046  clear
+ 1047  ls
+ 1048  grep replied_to downloaded_tweets_extend_nolf2.tsv | awk -F'\t' '($2 != $6)' >> replied_to.txt
+ 1049  grep replied_to downloaded_tweets_extend_original_nolf2.tsv | awk -F'\t' '($2 != $6)' >> replied_to_original.txt
+ 1050  vi replied_to.txt
+ 1051  cat replied_to_original.txt | cut -f 6| sort -nr k -1 >> replies_recieved_orginal.txt
+ 1052  cat replied_to_original.txt | cut -f 6| sort -nr k --1 >> replies_recieved_orginal.txt
+ 1053  cat replied_to_original.txt | cut -f 6| sort -nr -k1 >> replies_recieved_orginal.txt
+ 1054  cat replies_recieved_orginal.txt | awl '($1 >= 3)' >> influencers.txt
+ 1055  cat replies_recieved_orginal.txt | awk '($1 >= 3)' >> influencers.txt
+ 1056  wc -l influencers.txt
+ 1057  cat replied_to_original.txt replied_to.txt | cut -f2 | sort | uniq -c| awk '{print $2}' | sort -nr -k1 >> replied_to_them.txt
+ 1058  wc -l replied_to_them.txt
+ 1059  ls
+ 1060  grep -iFf replies_recieved_orginal.txt | wc -l
+ 1061  grep -iFf replied_to_them.txt replies_recieved_orginal.txt | wc -l
+ 1062  cat replied_to_.txt replied_to_original.txt | cut -f3,6,8 > temporary.txt
+ 1063  cat replied_to_.txt replied_to_original.txt | cut -f3,6,8 >> temporary.txt
+ 1064  cat replied_to.txt replied_to_original.txt | cut -f3,6,8 >> temporary.txt
+ 1065  grep iFf replied_to_them.txt | awk '{print $1}' | sort | uniq -c| sort -nr -k 1| head
+ 1066  grep iFf replied_to_them.txt | awk '{print $3}' | sort | uniq -c| sort -nr -k 1| head
+ 1067  grep iFf replied_to_them.txt temporary.txt | awk '{print $3}' | sort | uniq -c| sort -nr -k 1| head
+ 1068  grep -iFf replied_to_them.txt temporary.txt | awk '{print $3}' | sort | uniq -c| sort -nr -k 1| head
+ 1069  grep -iFf replied_to_them.txt temporary.txt | awk '{print $1}' | sort | uniq -c| sort -nr -k 1| head
+ 1070  [^>]*>//g' -e 's/  / /gi' | tr -c '[:alnum:]' '[\n*]' | sort | uniq -c | sort -nr | head -1
+ 1071 cut -f14 temporary.txt| head -n 100|  tr -c '[:alnum:]' '[\n*]' | sed "s/ /\n/g" | sort | uniq -c | sort -nr| head -n 10 >> temp2.txt 
+ 1072  cut -f14 temp2.txt | head -n 100|  |tr -c '[:alnum:]' '[\n*]' | sed "s/ /\n/g" | sort | uniq -c | sort -nr| head -n 10
+

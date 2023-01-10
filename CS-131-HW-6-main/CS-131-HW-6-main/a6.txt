@@ -1,0 +1,82 @@
+Script started on 2022-12-07 03:34:40-05:00
+alias ll='ls -l --color=auto'
+bash: alias: =: not found
+bash: alias: ls -latr: not found
+bash: alias: w: not found
+bash: alias: =: not found
+bash: alias: ls -la | wc: not found
+]0;mohit@sjsu:/mnt/scratch/mohit/Assignment-6/CS-131-HW-6[mohit@sjsu CS-131-HW-6]$ vi a[K[K[K[Kexit
+
+
+
+#Remove Bots from both the files
+
+ grep replied_to downloaded_tweets_extend_original_nolf2.tsv | awk -F'\t' '($2 != $6)' >> replied_to.txt
+ grep replied_to downloaded_tweets_extend_original_nolf2.tsv | awk -F'\t' '($2 != $6)' >> replied_to_original.txt
+ vi replied_to.txt
+
+ #Q1 Find the  number of influential user
+ 
+ cat replied_to_original.txt | cut -f 6| sort -nr -k1 >> replies_recieved_orginal.txt
+  cat replies_recieved_orginal.txt | awk '($1 >= 3)' >> influencers.txt
+ wc -l influencers.txt
+ cat replied_to_original.txt replied_to.txt | cut -f2 | sort | uniq -c| awk '{print $2}' | sort -nr -k1 >> replied_to_them.txt
+ wc -l replied_to_them.txt
+
+#Output
+2113 influencers.txt
+
+#Q2 Users replied to them in total?
+ 
+ grep -iFf replies_recieved_orginal.txt | wc -l
+
+#Output
+1667 replied_to_them.txt
+
+#Q3 users who replied to the influential users also got replied to from any other user
+
+  grep -iFf replied_to_them.txt replies_recieved_orginal.txt | wc -l
+ cat replied_to.txt replied_to_original.txt | cut -f3,6,8 >> temporary.txt
+
+#Output 
+vi temporary.txt
+
+#File to0 big, check the uploaded file on assignment repo
+
+
+#Q4 the replies in format YY-MM-DD and find the top 10 dates
+
+grep -iFf replied_to_them.txt temporary.txt | awk '{print $1}' | sort | uniq -c| sort -nr -k 1| head
+
+#Output
+    15 2022-04-08
+     12 2022-04-09
+      9 2022-03-05
+      8 2022-04-05
+      8 2022-02-27
+      8 2022-02-12
+      7 2022-04-26
+      7 2022-04-22
+      7 2022-04-12
+      7 2022-03-30
+
+
+#Q5 Which words are the most frequent in that tweet text?
+
+cut -f14 temporary.txt| head -n 100|  tr -c '[:alnum:]' '[\n*]' | sed "s/ /\n/g" | sort | uniq -c | sort -nr| head -n 10 >> temp2.txt 
+cut -f14 temp2.txt | head -n 100|  |tr -c '[:alnum:]' '[\n*]' | sed "s/ /\n/g" | sort | uniq -c | sort -nr| head -n 10
+
+#Output
+   6234 the
+   5148 to
+   4287 a
+   3212 of
+   2946 is
+   2195 tco
+   2195 https
+   2083 for
+   1947 you
+   1925 s
+
+
+Script done on 2022-12-07 03:34:50-05:00
